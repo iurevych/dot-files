@@ -5,9 +5,9 @@ endif
 set history=1000 " увеличение истории команд
 set undolevels=1000
 
-set nobackup       #no backup files
-set nowritebackup  #only in case you don't want a backup file while editing
-set noswapfile     #no swap files
+set nobackup
+set nowritebackup
+set noswapfile
 
 colorscheme beauty256
 set guifont=Monaco:h12
