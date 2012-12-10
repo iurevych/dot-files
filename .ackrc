@@ -1,0 +1,4 @@
+--type-set=ruby=.rb,.erb,.haml,.rake,.rsel
+--type-set=js=.js,.mustache,.coffee,.jade,.hamljs
+--type-set=css=.sass,.scss
+-G\A(?!app/assets/javascripts/gsc/(GSC.ui.mustache|widget-manual-tournament|jquery-ui-1.7.2.custom.min).js)

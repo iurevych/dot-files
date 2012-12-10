@@ -1,0 +1,65 @@
+[core]
+    ; Don't trust file modes
+    filemode = false
+    excludesfile = .gitignore
+    pager = less -FRSX
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[alias]
+    st = status
+    au = add -u .
+    ci = commit
+    ciam = commit --amend
+    br = branch
+    co = checkout
+    df = diff
+    lp = log -p
+    lt = log --topo-order
+    gl = log --graph
+    # glp = log --graph --pretty=oneline --abbrev-commit
+    glt = log --pretty=format:'%h : %s' --topo-order --graph
+    rl = reflog
+    sb = show-branch
+    brm = branch --merged
+    brnm = branch --no-merged
+    rnc = revert --no-commit
+    com = checkout master 
+    hard = reset --hard
+    me = merge --no-commit --no-ff
+    ls = ls-files
+    pu = pull
+    cp = cherry-pick
+    cpnx = cherry-pick --no-commit -x
+    last = log -1 HEAD
+    unstage = reset HEAD --
+    log1 = log --pretty=oneline --abbrev-commit --decorate
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lgn = "!f() { git log --graph --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative $@ | git name-rev --stdin --name-only ; } ; f"
+    file-blame = !git ls-files | xargs -n1 -i{} git log -1 --pretty=format:\"%ci {}\" -- {}
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
+[color "branch"]
+    current = yellow bold
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = red
+    untracked = cyan
+[diff]
+    color = auto
+    rename = copy
+[pager]
+    color = true
+[status]
+    color = auto
+[user]
+	name = iurevych
+	email = iurevych@gmail.com
