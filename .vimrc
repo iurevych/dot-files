@@ -1,4 +1,3 @@
-
 " Vundle setup
     set nocompatible " be iMproved
     filetype off     " required!
@@ -58,6 +57,7 @@
         Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
         "Bundle 'git://github.com/skammer/vim-css-color.git'
         "Bundle 'git://github.com/groenewege/vim-less.git'
+        Bundle 'git://github.com/lunaru/vim-less.git'
         Bundle 'git://github.com/miripiruni/vim-better-css-indent.git'
         "Bundle 'git://github.com/miripiruni/CSScomb-for-Vim.git'
     " JavaScript
@@ -75,7 +75,7 @@
         "Bundle 'git://github.com/fs111/pydoc.vim.git'
     " Perl
         Bundle 'git://github.com/petdance/vim-perl.git'
-        Bundle 'git://github.com/ggray/vim-tt2.git'
+        " Bundle 'git://github.com/ggray/vim-tt2.git'
     " Ruby/Rails
         "Bundle 'git://github.com/vim-ruby/vim-ruby.git'
         Bundle 'git://github.com/tpope/vim-rails.git'
@@ -94,7 +94,7 @@
 
 
 " Interface
-    set guifont=Monaco:h12
+    set guifont=Monaco:h14
     set nonumber                  " Не показываем нумерацию строк
                                   " Во-первых, номер текущей строки всегда
                                   " есть в statusline, во-вторых, всегда можно
@@ -575,6 +575,10 @@
       au BufRead,BufNewFile *.mustache set ft=html syntax=html
 
 
+    " CSS
+      au BufRead,BufNewFile *.less set ft=less syntax=less
+
+
     " FuzzyFinder
       map <F7> :FufFile **/
       imap <F7> :FufFile **/
@@ -582,11 +586,11 @@
       nnoremap <F7> :<C-u>FufFile **/<CR>
 
       " Renew cache
-      map <F12> :FufRenewCache<CR>
-      imap <F12> :FufRenewCache<CR>
-      nmap <F12> :FufRenewCache<CR>
-      nnoremap <F12> :FufRenewCache<CR>
-      nnoremap <silent> <F12> :FufRenewCache<CR>
+      map <F11> :FufRenewCache<CR>
+      imap <F11> :FufRenewCache<CR>
+      nmap <F11> :FufRenewCache<CR>
+      nnoremap <F11> :FufRenewCache<CR>
+      nnoremap <silent> <F11> :FufRenewCache<CR>
 
       " Exclude trash from indexing
       let g:fuf_dir_exclude = '\v(^|[/\\])\.(git|.sass-cache)($|[/\\])'
