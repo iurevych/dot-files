@@ -1,0 +1,9 @@
+rails c
+
+User.includes(:account).where(accounts: {id: nil}).each do |user|
+  user.create_account!(account_subscription_plan: AccountSubscriptionPlan.community)
+  user.save!
+end
+
+AccountSubscriptionPlan.create!(name: 'community', code: 'community')
+AccountSubscriptionPlan.create!(name: 'enterprise', code: 'enterprise')
