@@ -1,93 +1,68 @@
-" Vundle setup
     set nocompatible " be iMproved
+    set nocompatible | filetype indent plugin on | syn on
     filetype off     " required!
 
-    set rtp+=~/.vimi/.vim/bundle/vundle/
-    call vundle#rc()
+    call plug#begin('~/.vim/plugged')
+      Plug 'kchmck/vim-coffee-script'
+      Plug 'tpope/vim-fugitive'
+      Plug 'kchmck/vim-coffee-script'
+      Plug 'mileszs/ack.vim'
+      Plug 'rking/ag.vim'
+      "Plug 'isRuslan/vim-es6'
+      Plug 'tpope/vim-surround'
+      Plug 'tpope/vim-repeat'
+      Plug 'vim-syntastic/syntastic'
+      "Plug 'Valloric/YouCompleteMe'
+      Plug 'othree/javascript-libraries-syntax.vim'
+      Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+      Plug 'othree/yajs.vim'
+      Plug 'othree/es.next.syntax.vim'
+      Plug 'ervandew/supertab'
 
-    " let Vundle manage Vundle
-    " required!
-    Bundle 'git://github.com/gmarik/vundle.git'
+      Plug 'SirVer/ultisnips'
+      Plug 'honza/vim-snippets'
+
+      " Plug 'MarcWeber/vim-addon-mw-utils'
+      " Plug 'tomtom/tlib_vim'
+      " Plug 'marcweber/vim-addon-manager'
+      " Plug 'garbas/vim-snipmate'
+      " Plug 'honza/vim-snippets'
+    call plug#end()
+
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+
+    " let Vundle manage Vundle, required
+    Plugin 'VundleVim/Vundle.vim'
 
     " My Bundles here:
-    " NOTE: comments after Bundle command are not allowed...
+    " NOTE: comments after Plugin command are not allowed...
     "
     " Libs
-        " For FuzzyFinder:
-        Bundle 'L9'
-        Bundle 'grep.vim'
-        Bundle 'multiselect'
-        Bundle 'genutils'
-        Bundle 'ftpsync'
+      Plugin 'L9'
+      Plugin 'grep.vim'
+      Plugin 'genutils'
+      Plugin 'ftpsync'
     " Interface
-        Bundle 'git://github.com/altercation/vim-colors-solarized.git'
-        Bundle 'git://github.com/scrooloose/nerdtree.git'
-        Bundle 'git://github.com/ervandew/supertab.git'
-        "Bundle 'git://github.com/wincent/Command-T.git'
-        "Bundle 'git://github.com/vim-scripts/taglist.vim.git'
-        "depends: http://ctags.sourceforge.net/
-        "Bundle 'git://github.com/int3/vim-taglist-plus.git'
-        Bundle 'git://github.com/vim-scripts/IndexedSearch.git'
-        "Bundle 'git://github.com/rphillips/vim-zoomwin.git'
-        "Bundle 'git://github.com/mattn/zencoding-vim.git'
-        "Bundle 'git://github.com/vim-scripts/UltiSnips.git'
-        Bundle 'git://github.com/msanders/snipmate.vim.git'
-        "Bundle 'git://github.com/miripiruni/vimi-snippets.git'
-        Bundle 'git://github.com/mileszs/ack.vim.git'
-        Bundle 'git://github.com/scrooloose/nerdcommenter.git'
-        Bundle 'git://github.com/tpope/vim-surround.git'
-        "Bundle 'git://github.com/tpope/vim-fugitive.git'
-        "Bundle 'git://github.com/tsaleh/vim-align.git'
-        "Bundle 'git://github.com/vim-scripts/bufexplorer.zip.git'
-        "Bundle 'git://github.com/vim-scripts/delimitMate.vim.git'
-        "Bundle 'git://github.com/sjl/gundo.vim.git'
-        "Bundle 'git://github.com/edsono/vim-matchit.git'
-        Bundle 'git://github.com/sjl/threesome.vim.git'
-        "Bundle 'git://github.com/chrismetcalf/vim-yankring.git'
-        Bundle 'git://github.com/slack/vim-fuzzyfinder.git'
-        Bundle 'https://github.com/plasticboy/vim-markdown.git'
-        "Bundle 'git://github.com/vim-scripts/vimwiki.git'
+      Plugin 'altercation/vim-colors-solarized'
+      Plugin 'vim-scripts/IndexedSearch'
+      Plugin 'ctrlpvim/ctrlp.vim'
+      Plugin 'plasticboy/vim-markdown'
     " HTML/HAML
-        Bundle 'git://github.com/othree/html5.vim.git'
-        Bundle 'git://github.com/hokaccha/vim-html5validator.git'
-        "Bundle 'git://github.com/tyru/operator-html-escape.vim.git'
-        Bundle 'git://github.com/tpope/vim-haml.git'
-        Bundle 'git://github.com/gregsexton/MatchTag.git'
-    " CSS/LESS/SASS
-        Bundle 'git://github.com/hail2u/vim-css3-syntax.git'
-        "Bundle 'git://github.com/skammer/vim-css-color.git'
-        "Bundle 'git://github.com/groenewege/vim-less.git'
-        Bundle 'git://github.com/lunaru/vim-less.git'
-        Bundle 'git://github.com/miripiruni/vim-better-css-indent.git'
-        "Bundle 'git://github.com/miripiruni/CSScomb-for-Vim.git'
-    " JavaScript
-        " Bundle 'git://github.com/pangloss/vim-javascript.git'
-        Bundle 'git://github.com/itspriddle/vim-jquery.git'
-        Bundle 'git://github.com/kchmck/vim-coffee-script.git'
-        " Bundle 'git://github.com/spencertipping/js-vim-highlighter.git'
-        " Bundle 'jQuery'
-    " JSON
-        Bundle 'git://github.com/leshill/vim-json.git'
-    " PHP
-        Bundle 'git://github.com/vim-scripts/php.vim--Garvin.git'
-        Bundle 'git://github.com/2072/PHP-Indenting-for-VIm.git'
-    " Python/Django
-        "Bundle 'git://github.com/fs111/pydoc.vim.git'
-    " Perl
-        Bundle 'git://github.com/petdance/vim-perl.git'
-        " Bundle 'git://github.com/ggray/vim-tt2.git'
+      Plugin 'othree/html5.vim'
+      Plugin 'hokaccha/vim-html5validator'
+      Plugin 'gregsexton/MatchTag'
     " Ruby/Rails
-        "Bundle 'git://github.com/vim-ruby/vim-ruby.git'
-        Bundle 'git://github.com/tpope/vim-rails.git'
-        "Bundle 'git://github.com/tpope/vim-endwise.git'
+      Plugin 'tpope/vim-rails'
+    call vundle#end()
 
-    filetype plugin indent on     " required!
-    filetype plugin on     " required!
+    filetype plugin indent on " required!
+    filetype plugin on        " required!
     " Brief help
-    " :BundleList          - list configured bundles
-    " :BundleInstall(!)    - install(update) bundles
-    " :BundleSearch(!) foo - search(or refresh cache first) for foo
-    " :BundleClean(!)      - confirm(or auto-ap prove) removal of unused bundles
+    " :PluginList          - list configured bundles
+    " :PluginInstall(!)    - install(update) bundles
+    " :PluginSearch(!) foo - search(or refresh cache first) for foo
+    " :PluginClean(!)      - confirm(or auto-ap prove) removal of unused bundles
     " see :h vundle for more details or wiki for FAQ
 
 
@@ -103,7 +78,7 @@
 
     set encoding=utf-8            " character encoding used inside Vim.
     set fileencodings=utf8,cp1251 " Возможные кодировки файлов и последовательность определения
-    set wildmenu " Саджест по <tab> в командной строке
+    "set wildmenu " Саджест по <tab> в командной строке
                  " When 'wildmenu' is on, command-line completion operates in an enhanced
                  " mode.  On pressing 'wildchar' (usually <Tab>) to invoke completion,
                  " the possible matches are shown just above the command line, with the
@@ -127,9 +102,9 @@
     set showtabline=1       " Показывать табы всегда
     set list                " display unprintable characters
     set wrap                " Включаем перенос строк (http://vimcasts.org/episodes/soft-wrapping-text/)
-    if version >= 703
+    " if version >= 703
         "set colorcolumn=80 " Подсвечиваем 80 столбец
-    end
+    " end
     set formatoptions-=o    " dont continue comments when pushing o/O
     set linebreak           " Перенос не разрывая слов
     set autoindent          " Копирует отступ от предыдущей строки
@@ -206,9 +181,9 @@
         " set statusline+=\ \ %2.3p%%          " percentage through file in lines
         " set statusline+=\ \ %{FileSize()}
         set statusline+=%<                   " where truncate if line too long
-
-
-
+        set statusline+=%#warningmsg#
+        "set statusline+=%{SyntasticStatuslineFlag()}
+        set statusline+=%*
 
 
     " Show the line and column number of the cursor position
@@ -222,18 +197,18 @@
         menu Encoding.cp866 :e ++enc=cp866<CR>
 
     " Проверка орфографии
-        if version >= 700
-            set spell spelllang=
-            set nospell " По умолчанию проверка орфографии выключена
-            menu Spell.off :setlocal spell spelllang= <cr>
-            menu Spell.Russian+English :setlocal spell spelllang=ru,en <cr>
-            menu Spell.Russian :setlocal spell spelllang=ru <cr>
-            menu Spell.English :setlocal spell spelllang=en <cr>
-            menu Spell.-SpellControl- :
-            menu Spell.Word\ Suggest<Tab>z= z=
-            menu Spell.Previous\ Wrong\ Word<Tab>[s [s
-            menu Spell.Next\ Wrong\ Word<Tab>]s ]s
-        endif
+        " if version >= 700
+        "     set spell spelllang=
+        "     set nospell " По умолчанию проверка орфографии выключена
+        "     menu Spell.off :setlocal spell spelllang= <cr>
+        "     menu Spell.Russian+English :setlocal spell spelllang=ru,en <cr>
+        "     menu Spell.Russian :setlocal spell spelllang=ru <cr>
+        "     menu Spell.English :setlocal spell spelllang=en <cr>
+        "     menu Spell.-SpellControl- :
+        "     menu Spell.Word\ Suggest<Tab>z= z=
+        "     menu Spell.Previous\ Wrong\ Word<Tab>[s [s
+        "     menu Spell.Next\ Wrong\ Word<Tab>]s ]s
+        " endif
 
     " Фолдинг
         " Всё, что нужно знать для начала:
@@ -275,6 +250,15 @@
     set smartcase   " Override the 'ignorecase' if the search pattern contains upper case characters
     set gdefault    " Включает флаг g в командах замены, типа :s/a/b/
 
+    " No annoying sound on errors
+    set noerrorbells
+    set novisualbell
+    set t_vb=
+    set tm=500
+    " Properly disable sound on errors on MacVim
+    if has("gui_macvim")
+        autocmd GUIEnter * set vb t_vb=
+    endif
 
 " Шорткаты
     let mapleader = "," " мапим <Leader> на запятую. По умолчанию <Leader> это обратный слэш \
@@ -404,12 +388,12 @@
 
     " n и N
         " когда бегаем по результатам поиска, то пусть они всегда будут в центре
-        "nmap n nzz
-        "nmap N Nzz
-        "nmap * *zz
-        "nmap # #zz
-        "nmap g* g*zz
-        "nmap g# g#zz
+        nmap n nzz
+        nmap N Nzz
+        nmap * *zz
+        nmap # #zz
+        nmap g* g*zz
+        nmap g# g#zz
 
     " K to split
         " Basically this splits the current line into two new ones at the cursor position,
@@ -500,105 +484,77 @@
           autocmd! bufwritepost .vimrc source $MYVIMRC
         endif
 
-    " Go to last file(s) if invoked without arguments
-        " http://vimcastsim.wikia.com/wiki/Open_the_last_edited_file
-        " autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
-        "     \ call mkdir($HOME . "/.vim") |
-        "     \ endif |
-        "     \ execute "mksession! " . $HOME . "/.vim/Session.vim"
-        " autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/Session.vim") |
-        "     \ execute "source " . $HOME . "/.vim/Session.vim"
-
-    " Save on losing focus
-        "autocmd FocusLost * :wa
-
-    " Auto change the directory to the current file I'm working on
-        "autocmd BufEnter * lcd %:p:h
-
-    au FileType javascript  set tabstop=4
-    au FileType javascript  set softtabstop=4
-    au FileType javascript  set shiftwidth=4
-    au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
-
+    au FileType javascript  set tabstop=2
+    au FileType javascript  set softtabstop=2
+    au FileType javascript  set shiftwidth=2
+    au BufRead,BufNewFile *.cjsx set ft=coffee
 
 
 " Плагины
 
     " Solarized
-        syntax enable
-        let g:solarized_termcolors=256
-        set background=dark
-        try
-           colorscheme solarized
-        catch /^Vim\%((\a\+)\)\=:E185/
-           "echo "Solarized theme not found. Run :BundleInstall"
-        endtry
-
-        try
-            call togglebg#map("<Leader>b")
-        catch /^Vim\%((\a\+)\)\=:E117/
-            " :(
-        endtry
-
-    " NERDTree
-        nmap <Bs> :NERDTreeToggle<CR>
-        let NERDTreeShowBookmarks=1
-        let NERDTreeChDirMode=2
-        let NERDTreeQuitOnOpen=1
-        let NERDTreeShowHidden=1
-        let NERDTreeKeepTreeInNewTab=0
-        let NERDTreeMinimalUI=1 " Disables display of the 'Bookmarks' label and 'Press ? for help' text.
-        let NERDTreeDirArrows=1 " Tells the NERD tree to use arrows instead of + ~ chars when displaying directories.
-
-    " Zen Coding
-        let g:user_zen_settings = {
-          \  'php' : {
-          \    'extends' : 'html',
-          \    'filters' : 'c',
-          \  },
-          \  'xml' : {
-          \    'extends' : 'html',
-          \  },
-          \  'haml' : {
-          \    'extends' : 'html',
-          \  },
-          \}
-
-    " UltiSnips
-        let g:UltiSnipsExpandTrigger="<tab>"
-        let g:UltiSnipsJumpForwardTrigger="<tab>"
-        let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+      syntax enable
+      syntax on
+      set background=light
+      colorscheme solarized
 
     " HAML
       au BufRead,BufNewFile *.hamljs set ft=haml syntax=haml
       au BufRead,BufNewFile *.mustache set ft=html syntax=html
 
-
-    " CSS
-      au BufRead,BufNewFile *.less set ft=less syntax=less
-
-
-    " FuzzyFinder
-      map <F7> :FufFile **/
-      imap <F7> :FufFile **/
-      nmap <F7> :FufFile **/
-      nnoremap <F7> :<C-u>FufFile **/<CR>
-
-      " Renew cache
-      map <F11> :FufRenewCache<CR>
-      imap <F11> :FufRenewCache<CR>
-      nmap <F11> :FufRenewCache<CR>
-      nnoremap <F11> :FufRenewCache<CR>
-      nnoremap <silent> <F11> :FufRenewCache<CR>
+    " CTRLP
+      set runtimepath^=~/.vim/bundle/ctrlp.vim
+      set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.github/*,*/.sass-cache/*,*/log/*,*/node_modules/*,*/tmp/*,*/db/*,*/support/*
 
       " Exclude trash from indexing
-      let g:fuf_dir_exclude = '\v(^|[/\\])\.(git|.sass-cache)($|[/\\])'
-      let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|wav|sassc)$|(^|[/\\])(\.(hg|git|bzr|svn)|CVS|Prompts)($|[/\\])'
 
     " Save File
       map <F6> <Esc>:w<CR>
       imap <F6> <Esc>:w<CR>
       nmap <F6> <Esc>:w<CR>
       nnoremap <F6> <Esc>:w<CR>
+
+    " Ack search
+      map <F3> <Esc>:Ag 
+      imap <F3> <Esc>:Ag 
+      nmap <F3> <Esc>:Ag 
+      nnoremap <F3> <Esc>:Ag 
+
+    " Snipmate
+      " imap <Tab> <Plug>snipMateNextOrTrigger
+      " smap <Tab> <Plug>snipMateNextOrTrigger
+      " let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+      " let g:snipMate.scope_aliases = {}
+      " let g:snipMate.scope_aliases['sass'] = 'sass'
+      " let g:snipMate.scope_aliases['css'] = 'css'
+
+    " Syntastic
+      " let g:syntastic_always_populate_loc_list = 1
+      " let g:syntastic_auto_loc_list = 1
+      " let g:syntastic_check_on_open = 1
+      let g:syntastic_check_on_wq = 0
+      let g:syntastic_javascript_checkers = ['jslint']
+
+    " JS context coloring
+      " let g:js_context_colors_jsx = 1
+      " let g:js_context_colors_allow_jsx_syntax = 1
+
+    " Javascript libraries syntax
+      " let g:used_javascript_libs = 'underscore,jquery,react'
+
+    " YouCompleteMe
+      " make YCM compatible with UltiSnips (using supertab)
+      " let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+      " let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+      " let g:SuperTabDefaultCompletionType = '<C-n>'
+      " let g:ycm_autoclose_preview_window_after_completion = 1
+      " let g:ycm_min_num_of_chars_for_completion = 1
+      " set completeopt-=preview
+      autocmd BufEnter *.jsx set filetype=javascript
+
+    " UltiSnips
+      " better key bindings for UltiSnipsExpandTrigger
+      let g:UltiSnipsExpandTrigger = "<tab>"
+      let g:UltiSnipsJumpForwardTrigger = "<tab>"
+      let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
