@@ -1,0 +1,7 @@
+// Converts:
+// "@i": "@import url(|);"
+// INTO:
+// snippet @i
+//	@import url(|)
+
+:%s:^"\(.*\)"\: "\(.*\);":snippet \1\r\t\2:cgi
