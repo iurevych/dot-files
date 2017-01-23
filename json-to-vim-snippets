@@ -5,3 +5,8 @@
 //	@import url(|)
 
 :%s:^"\(.*\)"\: "\(.*\);":snippet \1\r\t\2:cgi
+
+// Find only first line
+:%s:^"\(.*\)"\: :snippet \1\r\t:cgi
+
+// And then the second one
